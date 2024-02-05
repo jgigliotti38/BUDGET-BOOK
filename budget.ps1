@@ -59,6 +59,11 @@ function startBudget {
     Start-Process 'D:\_Files\BUDGET-BOOK\Power Pivot\Finance Power Pivot.xlsm'
 }
 
+
+function removeBackup {
+	Remove-Item C:\Temp\BudgetBackup.zip -Confirm -Verbose -Force
+}
+
 # Backup Budget Folder
 backup
 
@@ -68,3 +73,8 @@ editTables
 
 # Start Budget Files
 startBudget
+
+# Prompt to Remove Backup File
+removeBackup
+
+Write-Host "`n===== END ====="
