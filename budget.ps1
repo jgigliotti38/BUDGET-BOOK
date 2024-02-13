@@ -15,6 +15,7 @@ function backup {
 function moveExport {
     if (Test-Path $env:USERPROFILE\Downloads\Export.csv) {
         # Write-Host "FOUND!"
+        Copy-Item C:\Users\jgigliotti\Downloads\Export.csv -Destination D:\_Files\BUDGET-BOOK\export.csv -Verbose -Force -Confirm
         Move-Item $env:USERPROFILE\Downloads\Export.csv -Destination D:\_Files\BUDGET-BOOK\.data\Export$year.csv -Verbose -Force -Confirm
         Write-Host "`nExport.csv has been moved" -BackgroundColor DarkCyan
         return $true
@@ -22,7 +23,6 @@ function moveExport {
         Write-Host "`nExport.csv File Missing" -BackgroundColor DarkRed
         return $false
     }
-
     Pause
 }
 
